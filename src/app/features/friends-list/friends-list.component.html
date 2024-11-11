@@ -1,0 +1,50 @@
+<h1>{{title}}</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>BFF</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let friend of friends; let i = index">
+      <td>{{friend.name}}</td>
+      <td>{{friend.age}}</td>
+      <td>{{friend.email}}</td>
+      <td>{{friend.bff}}</td>
+      <td><button (click)="deleteFriend(i)" class="btn btn-sm btn-danger">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Add a Friend</h3>
+<table>
+  <tr>
+    <td>Name:</td>
+    <td>
+      <input [(ngModel)]="newFriend.name" type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>Age:</td>
+    <td>
+      <input [(ngModel)]="newFriend.age" type="number">
+    </td>
+  </tr>
+  <tr>
+    <td>Email:</td>
+    <td>
+      <input [(ngModel)]="newFriend.email" type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>BFF?:</td>
+    <td>
+      <input [(ngModel)]="newFriend.bff" type="checkbox">
+    </td>
+  </tr>
+</table>
+<button (click)="addFriend()">Add Friend</button>
